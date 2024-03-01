@@ -27,6 +27,9 @@
     </node>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster"
+      args="0.0175 0.061 0.03 0.5  0.5  0.5 -0.5 end_effector_link camera_link" />
+
     <!-- Start RViz -->
     <node name="rviz" pkg="rviz" type="rviz" output="log" args="-f base_link" if="$(arg start_rviz)"/> 
 </launch>
