@@ -9,15 +9,15 @@
 
     <xacro:arg name="gripper" default="robotiq_2f_85" />
 
-    <xacro:arg name="forque" default="true" />
-    <xacro:arg name="realsense_cam" default="true" />
-    <xacro:arg name="reflect_cam" default="true" />
-
+    <xacro:arg name="forque" default="false" />
 
     <xacro:arg name="sim" default="false" />
     <xacro:arg name="prefix" default="" />
 
+    <xacro:arg name="feeding_utensil" default="false" />
+    <xacro:arg name="drinking_utensil" default="false" />
+
     <xacro:include filename="$(find kortex_description)/robots/kortex_robot.xacro" />
-    <xacro:load_robot arm="$(arg arm)" gripper="$(arg gripper)" forque="$(arg forque)" reflect_cam="$(arg reflect_cam)" realsense_cam="$(arg realsense_cam)" dof="$(arg dof)" vision="$(arg vision)" sim="$(arg sim)" prefix="$(arg prefix)" />
+    <xacro:load_robot arm="$(arg arm)" gripper="$(arg gripper)" forque="$(arg forque)" feeding_utensil="$(arg feeding_utensil)" drinking_utensil="$(arg drinking_utensil)"  dof="$(arg dof)" vision="$(arg vision)" sim="$(arg sim)" prefix="$(arg prefix)" />
 
 </robot>
