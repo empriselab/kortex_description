@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="load_drinking_utensil" params="parent prefix">
+  <xacro:macro name="load_wiping_tool" params="prefix">
 
-    <joint name="${prefix}drinking_utensil_joint" type="fixed">
-          <parent link="${parent}"/>
-          <child link="${prefix}drinkbase"/>
-          <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <joint name="finger_tip_to_wipebase" type="floating">
+        <parent link="finger_tip"/>
+        <child link="wipebase"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
-    <link name="${prefix}drinkbase">
+    <link name="${prefix}wipebase">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <mass value="0.072775" />
@@ -24,7 +24,7 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh
-                filename="package://kortex_description/tools/drinking_utensil/utensil_base.stl" />
+                filename="package://kortex_description/tools/wiping_tool/tool_base.stl" />
             </geometry>
             <material name="">
                 <color rgba="0.75294 1 0.75294 1" />
@@ -33,12 +33,12 @@
         <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://kortex_description/tools/drinking_utensil/utensil_base.stl" />
+                <mesh filename="package://kortex_description/tools/wiping_tool/tool_base.stl" />
             </geometry>
         </collision>
     </link>
 
-    <link name="${prefix}drink_tip">
+    <link name="${prefix}wipe_tip">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <mass value="0" />
@@ -46,9 +46,9 @@
       </inertial>
     </link>
 
-    <joint name="${prefix}joint_drink_tip" type="fixed">
-      <parent link="${prefix}drinkbase"/>
-      <child link="${prefix}drink_tip"/>
+    <joint name="${prefix}joint_wip_tip" type="fixed">
+      <parent link="${prefix}wipebase"/>
+      <child link="${prefix}wipe_tip"/>
       <axis xyz="0 0 0"/>
       <limit effort="2000" lower="0" upper="0" velocity="1"/>
       <!-- <origin rpy="0 0 0" xyz="0.095 0.007 0.0"/> -->

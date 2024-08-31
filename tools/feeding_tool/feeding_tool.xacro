@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="load_feeding_utensil" params="parent prefix">
-
-    <joint name="${prefix}feeding_utensil_joint" type="fixed">
-          <parent link="${parent}"/>
-          <child link="${prefix}forkbase"/>
-          <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+  <xacro:macro name="load_feeding_tool" params="prefix">
+    
+    <joint name="finger_tip_to_forkbase" type="floating">
+        <parent link="finger_tip"/>
+        <child link="forkbase"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
     <link name="${prefix}forkbase">
@@ -24,7 +24,7 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh
-                filename="package://kortex_description/tools/feeding_utensil/utensil_base.stl" />
+                filename="package://kortex_description/tools/feeding_tool/tool_base.stl" />
             </geometry>
             <material name="">
                 <color rgba="0.75294 1 0.75294 1" />
@@ -33,7 +33,7 @@
         <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://kortex_description/tools/feeding_utensil/utensil_base.stl" />
+                <mesh filename="package://kortex_description/tools/feeding_tool/tool_base.stl" />
             </geometry>
         </collision>
     </link>
@@ -54,7 +54,7 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh
-                filename="package://kortex_description/tools/feeding_utensil/utensil_roll.stl" />
+                filename="package://kortex_description/tools/feeding_tool/tool_pitch.stl" />
             </geometry>
             <material name="">
                 <color rgba="1 0.50196 0.50196 1" />
@@ -63,7 +63,7 @@
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://kortex_description/tools/feeding_utensil/utensil_roll.stl" />
+                <mesh filename="package://kortex_description/tools/feeding_tool/tool_pitch.stl" />
             </geometry>
         </collision>
     </link>
@@ -96,7 +96,7 @@
             rpy="0 0 0" />
         <geometry>
             <mesh
-            filename="package://kortex_description/tools/feeding_utensil/roll_link_new2.stl" />
+            filename="package://kortex_description/tools/feeding_tool/tool_roll.stl" />
         </geometry>
         <material
             name="">
@@ -110,7 +110,7 @@
             rpy="0 0 0" />
         <geometry>
             <mesh
-            filename="package://kortex_description/tools/feeding_utensil/roll_link_new2.stl" />
+            filename="package://kortex_description/tools/feeding_tool/tool_roll.stl" />
         </geometry>
         </collision>
     </link>
@@ -131,7 +131,7 @@
         velocity="8.4" />
     </joint>
 
-    <link name="${prefix}feeding_utensil_tip">
+    <link name="${prefix}feeding_tool_tip">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <mass value="0" />
@@ -139,9 +139,9 @@
       </inertial>
     </link>
 
-    <joint name="${prefix}joint_feeding_utensil_tip" type="fixed">
+    <joint name="${prefix}joint_feeding_tool_tip" type="fixed">
       <parent link="${prefix}forkroll"/>
-      <child link="${prefix}feeding_utensil_tip"/>
+      <child link="${prefix}feeding_tool_tip"/>
       <axis xyz="0 0 0"/>
       <limit effort="2000" lower="0" upper="0" velocity="1"/>
       <!-- <origin rpy="0 0 0" xyz="0.095 0.007 0.0"/> -->
@@ -158,7 +158,7 @@
     </link>
 
     <joint name="${prefix}joint_fork_tip" type="fixed">
-      <parent link="${prefix}feeding_utensil_tip"/>
+      <parent link="${prefix}feeding_tool_tip"/>
       <child link="${prefix}fork_tip"/>
       <axis xyz="0 0 0"/>
       <limit effort="2000" lower="0" upper="0" velocity="1"/>
