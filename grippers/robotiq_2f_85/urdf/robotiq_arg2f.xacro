@@ -64,7 +64,9 @@
     <joint name="${prefix}finger_tip_joint" type="fixed">
         <parent link="${parent}" />
         <child link="${prefix}finger_tip" />
-        <origin xyz="0 0 0.163" rpy="0 0 0"/>
+        <!-- <origin xyz="0 0 0.163" rpy="0 0 0"/> -->
+        <origin xyz="0 0 0.17955" rpy="0 0 0"/>
+        <!-- Added 1.655mm because of the new finger tip -->
         <!-- <axis xyz="0 0 1" /> -->
     </joint>
 
