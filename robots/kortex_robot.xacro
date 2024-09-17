@@ -86,8 +86,8 @@
 
         <!-- Load the wiping tool -->
         <xacro:if value="${tool == 'wiping'}">
-            <xacro:include filename="$(find kortex_description)/tools/drinking_tool/wiping_tool.xacro" />
-            <xacro:load_drinking_tool prefix="${prefix}"/> 
+            <xacro:include filename="$(find kortex_description)/tools/wiping_tool/wiping_tool.xacro" />
+            <xacro:load_wiping_tool prefix="${prefix}"/> 
         </xacro:if>
 
         <!-- Load the Gazebo transmissions and gazebo_ros_control plugin -->

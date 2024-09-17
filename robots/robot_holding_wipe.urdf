@@ -678,12 +678,12 @@
   </joint>
   <!-- Transmissions are loaded in the generic kortex xacro when simulation is enabled -->
   <!-- <xacro:robotiq_arg2f_transmission prefix="${prefix}"/> -->
-  <joint name="finger_tip_to_drinkbase" type="floating">
+  <joint name="finger_tip_to_wipebase" type="floating">
     <parent link="finger_tip"/>
-    <child link="drinkbase"/>
+    <child link="wipebase"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
-  <link name="drinkbase">
+  <link name="wipebase">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.072775"/>
@@ -692,7 +692,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://kortex_description/tools/drinking_tool/tool_base.stl"/>
+        <mesh filename="package://kortex_description/tools/wiping_tool/tool_base.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.75294 1 0.75294 1"/>
@@ -701,25 +701,25 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://kortex_description/tools/drinking_tool/tool_base.stl"/>
+        <mesh filename="package://kortex_description/tools/wiping_tool/tool_base.stl"/>
       </geometry>
     </collision>
   </link>
-  <link name="drink_tip">
+  <link name="wipe_tip">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
   </link>
-  <joint name="joint_drink_tip" type="fixed">
-    <parent link="drinkbase"/>
-    <child link="drink_tip"/>
+  <joint name="joint_wip_tip" type="fixed">
+    <parent link="wipebase"/>
+    <child link="wipe_tip"/>
     <axis xyz="0 0 0"/>
     <limit effort="2000" lower="0" upper="0" velocity="1"/>
     <!-- <origin rpy="0 0 0" xyz="0.095 0.007 0.0"/> -->
     <!-- <origin rpy="0 0 0" xyz="0.097 0.00 -0.002"/> -->
-    <origin rpy="0 1.570796 0" xyz="0.27 0.095 -0.045"/>
+    <origin rpy="0 1.570796 0" xyz="0.089 -0.015 -0.078"/>
   </joint>
 </robot>
 
