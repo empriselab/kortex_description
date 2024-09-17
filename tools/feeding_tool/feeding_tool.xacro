@@ -146,7 +146,7 @@
       <limit effort="2000" lower="0" upper="0" velocity="1"/>
       <!-- <origin rpy="0 0 0" xyz="0.095 0.007 0.0"/> -->
       <!-- <origin rpy="0 0 0" xyz="0.097 0.00 -0.002"/> -->
-      <origin rpy="0 0 0" xyz="0.13 0.0 0.0"/>
+      <origin rpy="0 0 0" xyz="0.13 0.0 0.003"/>
     </joint>
 
     <link name="${prefix}fork_tip">
